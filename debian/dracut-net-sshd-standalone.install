@@ -1,0 +1,7 @@
+module-setup.sh                usr/lib/dracut/modules.d/99dracut-net-sshd-standalone
+motd                           usr/lib/dracut/modules.d/99dracut-net-sshd-standalone
+net-sshd-standalone-cleanup.sh usr/lib/dracut/modules.d/99dracut-net-sshd-standalone
+net-sshd-standalone.sh         usr/lib/dracut/modules.d/99dracut-net-sshd-standalone
+profile                        usr/lib/dracut/modules.d/99dracut-net-sshd-standalone
+sshd.service                   usr/lib/dracut/modules.d/99dracut-net-sshd-standalone
+sshd_config                    usr/lib/dracut/modules.d/99dracut-net-sshd-standalone

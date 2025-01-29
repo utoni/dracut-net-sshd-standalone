@@ -1,0 +1,27 @@
+#!/usr/bin/make -f
+
+export DH_VERBOSE=1
+DPKG_EXPORT_BUILDTOOLS=1
+-include /usr/share/dpkg/buildtools.mk
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	dh_auto_configure -- --systemdsystemunitdir=/lib/systemd/system --libdir=/usr/lib
+
+override_dh_fixperms-arch:
+	dh_fixperms
+	find debian/ -name "*.sh" | grep modules.d | xargs chmod 755
+
+override_dh_fixperms-indep:
+	dh_fixperms
+	find debian/ -name "*.sh" | grep modules.d | xargs chmod 755
+	rm -f debian/*/usr/lib/dracut/modules.d/98dracut-systemd/*.asc
+	rm -f debian/*/usr/lib/dracut/modules.d/98dracut-systemd/*.8
+
+override_dh_auto_test:
+
+override_dh_clean:
+	dh_clean dracut.pc Makefile.inc dracut-version.sh src/skipcpio/skipcpio src/util/util
+	git status|grep modified: | awk '/.asc/ {print $$2}' | xargs -r git checkout

@@ -1,0 +1,17 @@
+Source: dracut-net-sshd-standalone
+Section: utils
+Priority: optional
+Maintainer: Toni Uhlig <toni@impl.cc>
+Build-Depends: debhelper-compat (= 12), debhelper
+Standards-Version: 4.6.2
+Vcs-Browser: https://github.com/utoni/dracut-net-sshd-standalone
+Vcs-Git: https://github.com/utoni/dracut-net-sshd-standalone.git
+Homepage: https://github.com/utoni/dracut-net-sshd-standalone
+
+Package: dracut-net-sshd-standalone
+Architecture: all
+Recommends: cryptsetup, lvm2
+Depends: dracut-core, iproute2, procps, psmisc, openssh-server
+Conflicts: dracut-network
+Description: Small and simple boot time dhcp client / sshd support.
+ Only minimal configuration required.

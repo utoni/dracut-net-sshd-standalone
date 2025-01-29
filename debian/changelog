@@ -1,0 +1,5 @@
+dracut-net-sshd-standalone (1.0-1) stable; urgency=medium
+
+  * Initial release.
+
+ -- toni <toni@impl.cc>  Wed, 29 Jan 2025 22:33:50 +0100
