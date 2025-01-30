@@ -18,7 +18,7 @@ depends() {
 
 install() {
 
-    inst /bin/ip /usr/bin/ps /usr/bin/pstree /usr/bin/killall /usr/sbin/sshd
+    inst /usr/bin/ps /usr/bin/pstree /usr/bin/killall /usr/sbin/sshd
     inst_multiple ip dhclient sed awk grep pgrep tr expr
     inst_multiple -o arping arping2
     strstr "$(arping 2>&1)" "ARPing 2" && mv "$initdir/bin/arping" "$initdir/bin/arping2"
@@ -60,6 +60,7 @@ install() {
     fi
     if [ ! -r "$authorized_keys" ]; then
         dfatal "No authorized_keys for root user found!"
+        dfatal "Paths searched: /root/.ssh/dracut_authorized_keys, /etc/dracut-net-sshd-standalone/authorized_keys, /root/.ssh/authorized_keys"
         return 1
     fi
     authorized_keys_wc=$(cat "$authorized_keys" | wc -c)

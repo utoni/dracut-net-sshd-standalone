@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+
+
+DRACUT_NET_SSHD_ETCDIR=/etc/dracut-net-sshd-standalone
+if [ "x${1}" = "xpurge" ]; then
+    printf '%s\n' "Removing ${DRACUT_NET_SSHD_ETCDIR}"
+    rm -rf "${DRACUT_NET_SSHD_ETCDIR}"
+fi
+
+#DEBHELPER

@@ -11,7 +11,7 @@ Homepage: https://github.com/utoni/dracut-net-sshd-standalone
 Package: dracut-net-sshd-standalone
 Architecture: all
 Recommends: cryptsetup, lvm2
-Depends: dracut-core, iproute2, procps, psmisc, openssh-server
+Depends: dracut-core, isc-dhcp-client, iproute2, procps, psmisc, openssh-server
 Conflicts: dracut-network
 Description: Small and simple boot time dhcp client / sshd support.
  Only minimal configuration required.
